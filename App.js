@@ -5,7 +5,7 @@
  * @time: 2018/10/23
  * @format
  * @flow
- */ 
+ */
 
 // import React, {Component} from 'react'
 // import {Platform, StyleSheet, Text, View} from 'react-native'
@@ -43,8 +43,21 @@ class ChatScreen extends React.Component {
 }
 
 const SimpleApp = createStackNavigator({
-  Home: { screen: HomeScreen },
-  Chat: { screen: ChatScreen }
+  Home: {
+    screen: HomeScreen,
+    navigationOptions: (navigation) => ({
+      title: 'HomeScreen',
+      headerBackTitle: 'HomeScreen much too long text for back button from ChatScreen to HomeScreen',
+      headerTruncatedBackTitle: 'back to home'
+    })
+  },
+  Chat: {
+    screen: ChatScreen,
+    navigationOptions: (navigation) => ({
+      title: 'ChatScreen',
+      headerRight: <Button title='rightBtn' />
+    })
+  }
 })
 
 export default class App extends React.Component {
