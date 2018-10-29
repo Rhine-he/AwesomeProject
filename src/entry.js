@@ -4,6 +4,7 @@ import { createStackNavigator } from 'react-navigation'
 
 import HomeScreen from './pages/home'
 import ChatScreen from './pages/chat'
+import EditScreen from './pages/edit'
 
 // Note: 页面跳转 A->B，B 页面标题栏的返回按钮文案在 A 的 navigationOptions 设置
 const SimpleAppNavigation = createStackNavigator({
@@ -21,6 +22,9 @@ const SimpleAppNavigation = createStackNavigator({
       title: 'ChatScreen',
       headerRight: <Button title='rightBtn' />
     })
-  }
+  },
+  Edit: EditScreen
+}, {
+  initialRouteName: 'Home'
 })
 export default SimpleAppNavigation
