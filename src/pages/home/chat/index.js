@@ -3,6 +3,7 @@ import { View, Text, Button } from 'react-native'
 export default class ChatScreen extends React.Component {
   componentDidMount () {
     console.log('chat, componentDidMount')
+    console.log('6---', this.props.navigation.state.params)
   }
   componentWillUnmount () {
     console.log('chat, componentWillUnmount')
