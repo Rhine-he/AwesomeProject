@@ -1,11 +1,21 @@
 import React from 'react'
 import { View, Button } from 'react-native'
 export default class EditScreen extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      count: 0
+    }
+  }
   componentDidMount () {
     console.log('edit, componentDidMount')
+    this.props.navigation.setParams({ increaseCount: this._increaseCount })
   }
   componentWillUnmount () {
     console.log('edit, componentWillUnmount')
+  }
+  _increaseCount = () => {
+    this.setState({ count: this.state.count + 1 })
   }
   render () {
     return (

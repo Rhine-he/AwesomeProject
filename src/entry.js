@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from 'react-native'
+import { Button, Text, View } from 'react-native'
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation'
 
 import HomeScreen from './pages/home/home'
@@ -7,6 +7,12 @@ import ChatScreen from './pages/home/chat'
 import EditScreen from './pages/home/edit'
 
 import SettingsScreen from './pages/setting'
+
+const customTitle = () => (
+  <View>
+    <Text>It's EditScreen</Text>
+  </View>
+)
 
 // Note: 页面跳转 A->B，B 页面标题栏的返回按钮文案在 A 的 navigationOptions 设置
 const HomeStack = createStackNavigator({
@@ -35,7 +41,22 @@ const HomeStack = createStackNavigator({
       />
     })
   },
-  Edit: EditScreen
+  Edit: {
+    screen: EditScreen,
+    navigationOptions: ({ navigation }) => {
+      return {
+        headerTitle: customTitle,
+        // title: 'EditScreen',
+        headerRight: (
+          <Button
+            onPress={() => navigation.getParam('increaseCount')}
+            title='+1'
+            color='#fff'
+          />
+        )
+      }
+    }
+  }
 }, {
   initialRouteName: 'Home',
   navigationOptions: {
