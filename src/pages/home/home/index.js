@@ -11,7 +11,7 @@ export default class HomeScreen extends React.Component {
   render () {
     const { navigate } = this.props.navigation
     return (
-      <View>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text>Hello, Navigation!</Text>
         <Button
           onPress={() => navigate('Chat', { user: 'Rhine' })}

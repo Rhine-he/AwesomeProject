@@ -10,7 +10,7 @@ export default class ChatScreen extends React.Component {
   render () {
     const { params } = this.props.navigation.state
     return (
-      <View>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text>Chat with {params.user}</Text>
         <Button
           title='Go to Edit Screen...'

@@ -19,7 +19,7 @@ export default class EditScreen extends React.Component {
   }
   render () {
     return (
-      <View>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Button
           title='pop to top, Home ...'
           onPress={() => this.props.navigation.popToTop()}
