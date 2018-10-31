@@ -1,6 +1,7 @@
 import React from 'react'
 import { Text, View } from 'react-native'
-export default class SettingsScreen extends React.Component {
+
+export default class MainScreen extends React.Component {
   componentDidMount () {
     console.log('settings, componentDidMount')
   }
@@ -9,7 +10,7 @@ export default class SettingsScreen extends React.Component {
   }
   render () {
     return (
-      <View>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text>Hello, SettingsScreen!</Text>
       </View>
     )

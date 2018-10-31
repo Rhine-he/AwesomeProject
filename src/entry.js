@@ -6,7 +6,8 @@ import HomeScreen from './pages/home/home'
 import ChatScreen from './pages/home/chat'
 import EditScreen from './pages/home/edit'
 
-import SettingsScreen from './pages/setting'
+import MainScreen from './pages/setting/main'
+import ModalScreen from './pages/setting/modal'
 
 const customTitle = () => (
   <View>
@@ -71,11 +72,43 @@ const HomeStack = createStackNavigator({
 })
 
 const SettingsStack = createStackNavigator({
-  Settings: SettingsScreen
+  Main: {
+    screen: MainScreen,
+    navigationOptions: ({ navigation }) => {
+      const params = navigation.state.params || {}
+      return {
+        title: 'Main',
+        headerRight: (
+          <Button
+            title='show modal'
+            color='#fff'
+            onPress={() => navigation.navigate('Modal')}
+          />
+        )
+      }
+    }
+  },
+  Modal: ModalScreen
+}, {
+  initialRouteName: 'Main',
+  navigationOptions: {
+    headerStyle: {
+      backgroundColor: '#f4511e'
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold'
+    }
+  }
+}, {
+  mode: 'modal',
+  headerMode: 'none'
 })
 
-const TabNavigator = createBottomTabNavigator({
-  Home: HomeStack,
-  Settings: SettingsStack
-})
+const TabNavigator = createBottomTabNavigator(
+  {
+    Home: HomeStack,
+    Settings: SettingsStack
+  }
+)
 export default TabNavigator
